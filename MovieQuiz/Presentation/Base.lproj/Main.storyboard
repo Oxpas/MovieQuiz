@@ -8,6 +8,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="YS Display-Bold.ttf">
+            <string>YSDisplay-Bold</string>
+        </array>
+        <array key="YS Display-Medium.ttf">
+            <string>YSDisplay-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Movie Quiz View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -109,17 +117,23 @@
                                     <constraint firstItem="6cF-gT-WqM" firstAttribute="leading" secondItem="3bJ-3g-MIG" secondAttribute="leading" id="Z4m-IX-gT7"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Pwc-vb-cJl">
+                                <rect key="frame" x="210" y="468" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="YS Black (iOS)"/>
                         <constraints>
                             <constraint firstItem="3bJ-3g-MIG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4B6-IR-ALk"/>
+                            <constraint firstItem="Pwc-vb-cJl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="DAx-tl-VGs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3bJ-3g-MIG" secondAttribute="bottom" id="Ldj-gi-y1W"/>
                             <constraint firstItem="3bJ-3g-MIG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="NS5-aU-ftk"/>
+                            <constraint firstItem="Pwc-vb-cJl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u4C-dl-wrR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3bJ-3g-MIG" secondAttribute="trailing" constant="20" id="wzw-Ji-igq"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="Pwc-vb-cJl" id="cgS-Qu-o8I"/>
                         <outlet property="imageView" destination="MBu-M3-H4h" id="5rH-XS-s7V"/>
                         <outlet property="indexLabel" destination="ay2-it-Gn4" id="nwG-WT-LaE"/>
                         <outlet property="questionLabel" destination="fMw-qb-R0t" id="2eU-Qi-djm"/>
