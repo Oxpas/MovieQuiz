@@ -4,6 +4,8 @@
 //
 //  Created by Николай Замараев on 02.07.2025.
 //
+import Foundation
+import UIKit
 
 protocol MovieQuizViewControllerProtocol: AnyObject {
     func show(quiz step: QuizStepViewModel)
@@ -16,12 +18,9 @@ protocol MovieQuizViewControllerProtocol: AnyObject {
     func showNetworkError(message: String)
 }
 
-import Foundation
-import UIKit
-
 final class MovieQuizPresenter: QuestionFactoryDelegate {
     
-    let questionsAmount: Int = 10
+    private let questionsAmount: Int = 10
     private var currentQuestionIndex: Int = 0
     var correctAnswers: Int = 0
     
@@ -42,7 +41,7 @@ final class MovieQuizPresenter: QuestionFactoryDelegate {
         viewController.showLoadingIndicator()
     }
     
-    func isLastQuestion() -> Bool {
+    private func isLastQuestion() -> Bool {
         currentQuestionIndex == questionsAmount - 1
     }
     
@@ -65,14 +64,14 @@ final class MovieQuizPresenter: QuestionFactoryDelegate {
     
     func yesButtonClicked() {
         guard let currentQuestion = currentQuestion else { return }
-        let isCorrect = currentQuestion.correctAnswer // true если правильный ответ "Да"
+        let isCorrect = currentQuestion.correctAnswer
         viewController?.highlightImageBorder(isCorrectAnswer: isCorrect)
         didAnswer(isYes: true)
     }
 
     func noButtonClicked() {
         guard let currentQuestion = currentQuestion else { return }
-        let isCorrect = !currentQuestion.correctAnswer // true если правильный ответ "Нет"
+        let isCorrect = !currentQuestion.correctAnswer
         viewController?.highlightImageBorder(isCorrectAnswer: isCorrect)
         didAnswer(isYes: false)
     }

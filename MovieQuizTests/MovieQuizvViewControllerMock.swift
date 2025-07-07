@@ -2,6 +2,7 @@ import XCTest
 @testable import MovieQuiz
 
 final class MovieQuizViewControllerMock: MovieQuizViewControllerProtocol {
+    // do nothing 
     func show(quiz step: QuizStepViewModel) {
     
     }
