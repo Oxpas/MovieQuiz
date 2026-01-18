@@ -1,40 +1,66 @@
 import UIKit
+import SkeletonView
 
-final class MovieQuizViewController: UIViewController, MovieQuizViewControllerProtocol {
-    
+final class MovieQuizViewController: UIViewController {
     //MARK: - Private properties
-    private var presenter: MovieQuizPresenter!
+    private lazy var presenter: MovieQuizPresenter = {
+        MovieQuizPresenter(viewController: self)
+    }()
     
-    //MARK: - Private outlet
-    @IBOutlet private var imageView: UIImageView!
-    @IBOutlet private var questionLabel: UILabel!
-    @IBOutlet private var indexLabel: UILabel!
+    //MARK: - Private outlets
+    @IBOutlet weak var questionNumber: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var questionLeftLabel: UILabel!
+    @IBOutlet weak var noButton: UIButton!
+    @IBOutlet weak var yesButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter = MovieQuizPresenter(viewController: self)
-        
-        let alertPresenter = AlertPresenter(viewController: self)
-        presenter.alertPresenter = alertPresenter
+        prepareOutletsToAnimate()
         
         showLoadingIndicator()
+        showSkeleton()
+        
+        presenter.loadData()
     }
     
     //MARK: - Private functions
-    func show(quiz step: QuizStepViewModel) {
-        imageView.layer.borderWidth = 0
-        imageView.image = step.image
-        questionLabel.text = step.question
-        indexLabel.text = step.questionNumber
+    @MainActor
+    private func showSkeleton() {
+        let gradient = SkeletonGradient(baseColor: UIColor.midnightBlue)
+        
+        imageView.showAnimatedGradientSkeleton(usingGradient: gradient)
+        questionLabel.showAnimatedGradientSkeleton(usingGradient: gradient)
+        questionNumber.showAnimatedGradientSkeleton(usingGradient: gradient)
+        questionLeftLabel.showAnimatedGradientSkeleton(usingGradient: gradient)
+        yesButton.showAnimatedGradientSkeleton(usingGradient: gradient)
+        noButton.showAnimatedGradientSkeleton(usingGradient: gradient)
     }
     
-    func highlightImageBorder(isCorrectAnswer: Bool) {
-        imageView.layer.masksToBounds = true
-        imageView.layer.borderWidth = 8
-        imageView.layer.borderColor = isCorrectAnswer ? UIColor.ypGreenIOS.cgColor : UIColor.ypRedIOS.cgColor
+    @MainActor
+    func hideSkeleton() {
+        imageView.hideSkeleton()
+        questionLabel.hideSkeleton()
+        questionNumber.hideSkeleton()
+        questionLeftLabel.hideSkeleton()
+        yesButton.hideSkeleton()
+        noButton.hideSkeleton()
+    }
+    
+    private func prepareOutletsToAnimate() {
+        imageView.isSkeletonable = true
+        imageView.skeletonCornerRadius = 20
+        questionLabel.isSkeletonable = true
+        questionNumber.isSkeletonable = true
+        questionLeftLabel.isSkeletonable = true
+        yesButton.isSkeletonable = true
+        yesButton.skeletonCornerRadius = 15
+        noButton.isSkeletonable = true
+        noButton.skeletonCornerRadius = 15
     }
     
     func showLoadingIndicator() {
@@ -47,30 +73,30 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
         activityIndicator.stopAnimating()
     }
     
-    func showNetworkError(message: String) {
-        hideLoadingIndicator()
+    func show(quiz step: QuizStepViewModel) {
+        questionNumber.text = step.questionNumber
+        imageView.image = step.image
+        questionLabel.text = step.question
+    }
+    
+    func showAnswerResult(isCorrect: Bool) {
+        imageView.layer.borderWidth = 8
         
-        let alert = UIAlertController(
-            title: "Ошибка",
-            message: message,
-            preferredStyle: .alert)
+        imageView.layer.borderColor = isCorrect ? UIColor(resource: .appGreen).cgColor : UIColor(resource: .appRed).cgColor
         
-        let action = UIAlertAction(title: "Попробовать ещё раз",
-                                   style: .default) { [weak self] _ in
-            guard let self = self else { return }
-            
-            self.presenter.restartGame()
+        Task { @MainActor [weak self] in
+            try? await Task.sleep(nanoseconds: 1_000_000_000)
+            self?.presenter.showNextQuestionOrResult()
+            self?.imageView.layer.borderWidth = 0
         }
-        
-        alert.addAction(action)
     }
     
     //MARK: - Private actions
-    @IBAction private func yesButtonClicked(_ sender: Any) {
-        presenter.yesButtonClicked()
+    @IBAction private func noButtonTapped(_ sender: UIButton) {
+        presenter.noButtonTapped()
     }
     
-    @IBAction private func noButtonClicked(_ sender: Any) {
-        presenter.noButtonClicked()
+    @IBAction private func yesButtonTapped(_ sender: UIButton) {
+        presenter.yesButtonTapped()
     }
 }

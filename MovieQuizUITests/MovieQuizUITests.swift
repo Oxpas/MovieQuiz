@@ -2,7 +2,7 @@
 //  MovieQuizUITests.swift
 //  MovieQuizUITests
 //
-//  Created by Николай Замараев on 01.07.2025.
+//  Created by Николай Замараев on 18.01.2026.
 //
 
 import XCTest
@@ -10,6 +10,70 @@ import XCTest
 final class MovieQuizUITests: XCTestCase {
     
     var app: XCUIApplication!
+    
+    func testNoButton() {
+        sleep(3)
+        
+        let firstPoster = app.images["Poster"]
+        let firstPosterData = firstPoster.screenshot().pngRepresentation
+        
+        app.buttons["No"].tap()
+        
+        sleep(3)
+        
+        let secondPoster = app.images["Poster"]
+        let secondPosterData = secondPoster.screenshot().pngRepresentation
+        
+        XCTAssertNotEqual(firstPosterData, secondPosterData)
+    }
+    
+    func testYesButton() {
+        sleep(3)
+        
+        let firstPoster = app.images["Poster"]
+        let firstPosterData = firstPoster.screenshot().pngRepresentation
+        
+        app.buttons["Yes"].tap()
+        
+        sleep(3)
+        
+        let secondPoster = app.images["Poster"]
+        let secondPosterData = secondPoster.screenshot().pngRepresentation
+        
+        XCTAssertNotEqual(firstPosterData, secondPosterData)
+    }
+    
+    func testGameFinish() {
+        sleep(2)
+        for _ in 1...10 {
+            app.buttons["No"].tap()
+            sleep(2)
+        }
+
+        let alert = app.alerts["Game results"]
+        
+        XCTAssertTrue(alert.exists)
+        XCTAssertTrue(alert.label == "Этот раунд окончен!")
+        XCTAssertTrue(alert.buttons.firstMatch.label == "Сыграть ещё раз")
+    }
+
+    func testAlertDismiss() {
+        sleep(2)
+        for _ in 1...10 {
+            app.buttons["No"].tap()
+            sleep(2)
+        }
+        
+        let alert = app.alerts["Game results"]
+        alert.buttons.firstMatch.tap()
+        
+        sleep(2)
+        
+        let indexLabel = app.staticTexts["Index"]
+        
+        XCTAssertFalse(alert.exists)
+        XCTAssertTrue(indexLabel.label == "1/10")
+    }
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -26,65 +90,13 @@ final class MovieQuizUITests: XCTestCase {
         app.terminate()
         app = nil
     }
-    
-    func testYesButton() {
-        sleep(3)
-        
-        let firstPoster = app.images["Poster"]
-        let firstPosterData = firstPoster.screenshot().pngRepresentation
-        
-        app.buttons["Yes"].tap()
-        sleep(3)
-        
-        let secondPoster = app.images["Poster"]
-        let secondPosterData = secondPoster.screenshot().pngRepresentation
-        
-        XCTAssertNotEqual(firstPosterData, secondPosterData)
-}
-    func testNoButton() {
-        sleep(3)
-        
-        let firstPoster = app.images["Poster"]
-        let firstPosterData = firstPoster.screenshot().pngRepresentation
-        
-        app.buttons["No"].tap()
-        sleep(3)
-        
-        let secondPoster = app.images["Poster"]
-        let secondPosterData = secondPoster.screenshot().pngRepresentation
-        
-        XCTAssertNotEqual(firstPosterData, secondPosterData)
-    }
-    
-    func testGameFinish() {
-        sleep(3)
-        for _ in 1...10 {
-            app.buttons["No"].tap()
-            sleep(3)
-        }
 
-        let alert = app.alerts["Game result"]
-        
-        XCTAssertTrue(alert.exists)
-        XCTAssertTrue(alert.label == "Этот раунд окончен!")
-        XCTAssertTrue(alert.buttons.firstMatch.label == "Сыграть ещё раз")
-    }
+    @MainActor
+    func testExample() throws {
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
 
-    func testAlertDismiss() {
-        sleep(3)
-        for _ in 1...10 {
-            app.buttons["No"].tap()
-            sleep(3)
-        }
-        
-        let alert = app.alerts["Game result"]
-        alert.buttons.firstMatch.tap()
-        
-        sleep(2)
-        
-        let indexLabel = app.staticTexts["Index"]
-        
-        XCTAssertFalse(alert.exists)
-        XCTAssertTrue(indexLabel.label == "1/10")
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 }
