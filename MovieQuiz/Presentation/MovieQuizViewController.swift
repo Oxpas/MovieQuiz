@@ -2,8 +2,10 @@ import UIKit
 
 final class MovieQuizViewController: UIViewController, MovieQuizViewControllerProtocol {
     
+    //MARK: - Private properties
     private var presenter: MovieQuizPresenter!
     
+    //MARK: - Private outlet
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var questionLabel: UILabel!
     @IBOutlet private var indexLabel: UILabel!
@@ -21,15 +23,7 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
         showLoadingIndicator()
     }
     
-    
-    @IBAction private func yesButtonClicked(_ sender: Any) {
-        presenter.yesButtonClicked()
-    }
-    
-    @IBAction private func noButtonClicked(_ sender: Any) {
-        presenter.noButtonClicked()
-    }
-    
+    //MARK: - Private functions
     func show(quiz step: QuizStepViewModel) {
         imageView.layer.borderWidth = 0
         imageView.image = step.image
@@ -42,7 +36,6 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
         imageView.layer.borderWidth = 8
         imageView.layer.borderColor = isCorrectAnswer ? UIColor.ypGreenIOS.cgColor : UIColor.ypRedIOS.cgColor
     }
-    
     
     func showLoadingIndicator() {
         activityIndicator.isHidden = false
@@ -70,5 +63,14 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
         }
         
         alert.addAction(action)
+    }
+    
+    //MARK: - Private actions
+    @IBAction private func yesButtonClicked(_ sender: Any) {
+        presenter.yesButtonClicked()
+    }
+    
+    @IBAction private func noButtonClicked(_ sender: Any) {
+        presenter.noButtonClicked()
     }
 }
