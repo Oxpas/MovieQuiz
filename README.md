@@ -8,6 +8,13 @@ MovieQuiz - это приложение с квизами о фильмах из
   <img src="MovieQuiz/Resources/Screenshots/324shots_so.png"/>
 </p>
 
+## **Стек используемых технологий**
+1. Alamofire - для работы с сетью
+2. SekeletonView - для показа анимации загрузки (1 скрин)
+3. Async/await для ассинхронной работы функций приложения
+4. XCTestCase для тестирования
+5. MVP - для четкого разделения ответственностей логики приложения
+
 ## **Ссылки**
 
 [Макет Figma](https://www.figma.com/design/wjLUZUID3eizsbYd616EUD/YP-Quiz)
@@ -15,12 +22,6 @@ MovieQuiz - это приложение с квизами о фильмах из
 [API IMDb](https://tv-api.com/api#Top250Movies-header)
 
 [Шрифты](https://code.s3.yandex.net/Mobile/iOS/Fonts/MovieQuizFonts.zip)
-
-## Скрины приложения
-
-<p float="left">
-  <img src="MovieQuiz/Resources/Screenshots/324shots_so.png" width="250" />
-</p>
 
 ## **Описание приложения**
 
