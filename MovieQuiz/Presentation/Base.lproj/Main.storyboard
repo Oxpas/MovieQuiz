@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_9" orientation="portrait" appearance="dark"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -18,125 +18,138 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MovieQuizViewController" customModule="MovieQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3bJ-3g-MIG">
-                                <rect key="frame" x="20" y="134" width="400" height="754"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zIo-xV-PlL">
+                                <rect key="frame" x="20" y="768" width="374" height="60"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cF-gT-WqM">
-                                        <rect key="frame" x="0.0" y="0.0" width="400" height="24"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcL-6p-1qW" userLabel="Question Title Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="348.33333333333331" height="24"/>
-                                                <fontDescription key="fontDescription" name="ZenDots-Regular" family="Zen Dots" pointSize="20"/>
-                                                <color key="textColor" name="YP White (iOS)"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="1/10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ay2-it-Gn4" userLabel="Index Label">
-                                                <rect key="frame" x="348.33333333333331" y="0.0" width="51.666666666666686" height="24"/>
-                                                <accessibility key="accessibilityConfiguration" identifier="Index"/>
-                                                <fontDescription key="fontDescription" name="ZenDots-Regular" family="Zen Dots" pointSize="20"/>
-                                                <color key="textColor" name="YP White (iOS)"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MBu-M3-H4h" userLabel="Preview Image">
-                                        <rect key="frame" x="53.666666666666657" y="44" width="292.66666666666674" height="439"/>
-                                        <color key="backgroundColor" name="YP White (iOS)"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="Poster"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTf-O2-X4D">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="No"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="MBu-M3-H4h" secondAttribute="height" multiplier="2:3" id="aHH-lT-NIA"/>
+                                            <constraint firstAttribute="height" constant="60" id="LtS-xp-lFt"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="ZenDots-Regular" family="Zen Dots" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Нет">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="20"/>
+                                                <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рейтинг этого фильма меньше, чем 5?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMw-qb-R0t" userLabel="Question Label">
-                                        <rect key="frame" x="31.333333333333343" y="503" width="337.66666666666663" height="171"/>
-                                        <fontDescription key="fontDescription" name="ZenDots-Regular" family="Zen Dots" pointSize="24"/>
-                                        <color key="textColor" name="YP White (iOS)"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eWE-7L-shk">
-                                        <rect key="frame" x="0.0" y="694" width="400" height="60"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7AW-H0-txY" userLabel="No Button">
-                                                <rect key="frame" x="0.0" y="0.0" width="190" height="60"/>
-                                                <color key="backgroundColor" name="YP White (iOS)"/>
-                                                <accessibility key="accessibilityConfiguration" identifier="No"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="mzK-ac-OmS"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="ZenDots-Regular" family="Zen Dots" pointSize="20"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Нет">
-                                                    <color key="titleColor" name="YP Black (iOS)"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="noButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1cb-oB-IWb"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lp3-Fc-kia" userLabel="Yes Button">
-                                                <rect key="frame" x="210" y="0.0" width="190" height="60"/>
-                                                <color key="backgroundColor" name="YP White (iOS)"/>
-                                                <accessibility key="accessibilityConfiguration" identifier="Yes"/>
-                                                <fontDescription key="fontDescription" name="ZenDots-Regular" family="Zen Dots" pointSize="20"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Да">
-                                                    <color key="titleColor" name="YP Black (iOS)"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="yesButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RTs-PF-DDX"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="lp3-Fc-kia" firstAttribute="height" secondItem="7AW-H0-txY" secondAttribute="height" id="G5W-2j-gVT"/>
-                                            <constraint firstItem="lp3-Fc-kia" firstAttribute="width" secondItem="7AW-H0-txY" secondAttribute="width" id="Gfa-Fq-ypE"/>
-                                        </constraints>
-                                    </stackView>
+                                        <connections>
+                                            <action selector="noButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B82-Ms-8wi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Vx-Ss-VOw">
+                                        <rect key="frame" x="197" y="0.0" width="177" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Yes"/>
+                                        <fontDescription key="fontDescription" name="ZenDots-Regular" family="Zen Dots" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Да">
+                                            <color key="titleColor" name="appBlack"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="yesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X0P-Ei-7A6"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="eWE-7L-shk" secondAttribute="trailing" id="Dri-rC-4ar"/>
-                                    <constraint firstItem="eWE-7L-shk" firstAttribute="leading" secondItem="3bJ-3g-MIG" secondAttribute="leading" id="Fwn-Cz-uuy"/>
-                                    <constraint firstAttribute="trailing" secondItem="6cF-gT-WqM" secondAttribute="trailing" id="TXD-3E-YHY"/>
-                                    <constraint firstItem="6cF-gT-WqM" firstAttribute="leading" secondItem="3bJ-3g-MIG" secondAttribute="leading" id="Z4m-IX-gT7"/>
+                                    <constraint firstItem="gTf-O2-X4D" firstAttribute="width" secondItem="4Vx-Ss-VOw" secondAttribute="width" id="enT-pl-ggm"/>
                                 </constraints>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Pwc-vb-cJl">
-                                <rect key="frame" x="210" y="468" width="20" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рейтинг этого фильма меньше чем 5?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnT-6f-krE">
+                                <rect key="frame" x="20" y="670" width="374" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="rbZ-Gg-c1N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ZenDots-Regular" family="Zen Dots" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X3N-rb-FjJ">
+                                <rect key="frame" x="20" y="150" width="374" height="500"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Poster"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nGg-Bi-b9H">
+                                <rect key="frame" x="20" y="106" width="374" height="24"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JR6-VQ-YeW">
+                                        <rect key="frame" x="0.0" y="0.0" width="235" height="24"/>
+                                        <fontDescription key="fontDescription" name="ZenDots-Regular" family="Zen Dots" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="1/10" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOf-Sa-x6j">
+                                        <rect key="frame" x="255" y="0.0" width="119" height="24"/>
+                                        <fontDescription key="fontDescription" name="ZenDots-Regular" family="Zen Dots" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="JR6-VQ-YeW" firstAttribute="width" secondItem="VOf-Sa-x6j" secondAttribute="width" multiplier="1.97087" id="wvf-1t-fCV"/>
+                                </constraints>
+                            </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="EY3-oE-bfi">
+                                <rect key="frame" x="157" y="350" width="100" height="100"/>
+                                <color key="backgroundColor" name="appBackground"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="2sa-LG-dpU"/>
+                                    <constraint firstAttribute="height" constant="100" id="mys-Te-F97"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="YS Black (iOS)"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="3bJ-3g-MIG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4B6-IR-ALk"/>
-                            <constraint firstItem="Pwc-vb-cJl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="DAx-tl-VGs"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3bJ-3g-MIG" secondAttribute="bottom" id="Ldj-gi-y1W"/>
-                            <constraint firstItem="3bJ-3g-MIG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="NS5-aU-ftk"/>
-                            <constraint firstItem="Pwc-vb-cJl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u4C-dl-wrR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3bJ-3g-MIG" secondAttribute="trailing" constant="20" id="wzw-Ji-igq"/>
+                            <constraint firstItem="X3N-rb-FjJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="8ON-CO-hzU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X3N-rb-FjJ" secondAttribute="trailing" constant="20" id="97y-OZ-eji"/>
+                            <constraint firstItem="cnT-6f-krE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9I7-4X-kdZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zIo-xV-PlL" secondAttribute="bottom" id="C0y-uA-8c3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zIo-xV-PlL" secondAttribute="trailing" constant="20" id="FtK-sT-RIG"/>
+                            <constraint firstItem="nGg-Bi-b9H" firstAttribute="bottom" secondItem="X3N-rb-FjJ" secondAttribute="top" constant="-20" id="HMu-oV-x1O"/>
+                            <constraint firstItem="zIo-xV-PlL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="LyV-GE-9OK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nGg-Bi-b9H" secondAttribute="trailing" constant="20" id="RdV-45-vXQ"/>
+                            <constraint firstItem="EY3-oE-bfi" firstAttribute="centerX" secondItem="X3N-rb-FjJ" secondAttribute="centerX" id="Srk-oc-8cz"/>
+                            <constraint firstItem="cnT-6f-krE" firstAttribute="top" secondItem="X3N-rb-FjJ" secondAttribute="bottom" constant="20" id="TqL-t5-wbi"/>
+                            <constraint firstItem="zIo-xV-PlL" firstAttribute="top" secondItem="cnT-6f-krE" secondAttribute="bottom" constant="20" id="Vim-9U-JmD"/>
+                            <constraint firstItem="EY3-oE-bfi" firstAttribute="centerY" secondItem="X3N-rb-FjJ" secondAttribute="centerY" id="bEs-md-Beu"/>
+                            <constraint firstItem="cnT-6f-krE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="cMT-i0-yr1"/>
+                            <constraint firstItem="nGg-Bi-b9H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kW3-fu-02y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="nGg-Bi-b9H" secondAttribute="top" constant="-10" id="yHc-iP-7JP"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="Pwc-vb-cJl" id="cgS-Qu-o8I"/>
-                        <outlet property="imageView" destination="MBu-M3-H4h" id="5rH-XS-s7V"/>
-                        <outlet property="indexLabel" destination="ay2-it-Gn4" id="nwG-WT-LaE"/>
-                        <outlet property="questionLabel" destination="fMw-qb-R0t" id="2eU-Qi-djm"/>
+                        <outlet property="activityIndicator" destination="EY3-oE-bfi" id="g20-a3-ChB"/>
+                        <outlet property="imageView" destination="X3N-rb-FjJ" id="Xtu-7i-NlK"/>
+                        <outlet property="noButton" destination="gTf-O2-X4D" id="zgI-RP-Get"/>
+                        <outlet property="questionLabel" destination="cnT-6f-krE" id="XCa-ck-Z9Z"/>
+                        <outlet property="questionLeftLabel" destination="JR6-VQ-YeW" id="Vjl-J5-N9H"/>
+                        <outlet property="questionNumber" destination="VOf-Sa-x6j" id="f4E-mB-Ztm"/>
+                        <outlet property="yesButton" destination="4Vx-Ss-VOw" id="amu-2R-nXj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -145,13 +158,10 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="YP Black (iOS)">
-            <color red="0.10196078431372549" green="0.10588235294117647" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="appBackground">
+            <color red="0.10196078431372549" green="0.10588235294117647" blue="0.13333333333333333" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="YP White (iOS)">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="YS Black (iOS)">
+        <namedColor name="appBlack">
             <color red="0.10196078431372549" green="0.10588235294117647" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>

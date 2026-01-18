@@ -10,11 +10,17 @@ MovieQuiz - это приложение с квизами о фильмах из
 
 ## **Ссылки**
 
-[Макет Figma](https://www.figma.com/file/l0IMG3Eys35fUrbvArtwsR/YP-Quiz?node-id=34%3A243)
+[Макет Figma](https://www.figma.com/design/wjLUZUID3eizsbYd616EUD/YP-Quiz)
 
-[API IMDb](https://imdb-api.com/api#Top250Movies-header)
+[API IMDb](https://tv-api.com/api#Top250Movies-header)
 
 [Шрифты](https://code.s3.yandex.net/Mobile/iOS/Fonts/MovieQuizFonts.zip)
+
+## Скрины приложения
+
+<p float="left">
+  <img src="MovieQuiz/Resources/Screenshots/324shots_so.png" width="250" />
+</p>
 
 ## **Описание приложения**
 
@@ -34,6 +40,6 @@ MovieQuiz - это приложение с квизами о фильмах из
 
 ## **Технические требования**
 
-- Приложение должно поддерживать устройства iPhone с iOS 15, предусмотрен только портретный режим;
+- Приложение должно поддерживать устройства iPhone с iOS 13, предусмотрен только портретный режим;
 - Элементы интерфейса адаптируются под разрешения экранов iPhone, начиная с X — вёрстка под SE и iPad не предусмотрена;
 - Экраны соответствует макету — использованы верные шрифты нужных размеров, все надписи находятся на нужном месте, расположение всех элементов, размеры кнопок и отступы — точно такие же, как в макете.
