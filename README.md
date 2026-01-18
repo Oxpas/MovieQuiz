@@ -2,6 +2,12 @@
 
 MovieQuiz - это приложение с квизами о фильмах из топ-250 рейтинга и самых популярных фильмах по версии IMDb.
 
+## **Скриншоты приложения**
+
+<p float="left">
+  <img src="MovieQuiz/Resources/Screenshots/324shots_so.png"/>
+</p>
+
 ## **Ссылки**
 
 [Макет Figma](https://www.figma.com/design/wjLUZUID3eizsbYd616EUD/YP-Quiz)
@@ -10,12 +16,10 @@ MovieQuiz - это приложение с квизами о фильмах из
 
 [Шрифты](https://code.s3.yandex.net/Mobile/iOS/Fonts/MovieQuizFonts.zip)
 
-## **Screenshots**
-
-## Screenshots
+## Скрины приложения
 
 <p float="left">
-  <img src="Screenshots/324shots_so.png" width="250" />
+  <img src="MovieQuiz/Resources/Screenshots/324shots_so.png" width="250" />
 </p>
 
 ## **Описание приложения**
